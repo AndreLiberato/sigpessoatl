@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" th:fragment="props(title, module, content, scripts)">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
+        integrity="sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z+GOZ7fBPCNB06Z98=" crossorigin="anonymous">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css"
+        integrity="sha256-6MNujrdbV0Z7S927PzUMXOmMLwkKdsdD7XIl/w89HMQ=" crossorigin="anonymous">
+
+    <!-- Título da página -->
+    <title th:text="${title}">Layout Page</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><span class="bi bi-person"></span>SigPessoa</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" th:classappend="${module == 'inicio' ? 'active' : ''}">
+                            <a th:href="@{/}" class="nav-link">Início</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${module == 'pessoa' ? 'active' : ''}">
+                            <a th:href="@{/pessoa}" class="nav-link">Pessoas</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${module == 'usuario' ? 'active' : ''}">
+                            <a th:href="@{/usuario}" class="nav-link">Usuários</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${module == 'papel' ? 'active' : ''}">
+                            <a th:href="@{/papel}" class="nav-link">Papeis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main th:replace="${content}">
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <!-- JQuery -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"
+        integrity="sha256-gvZPYrsDwbwYJLD5yeBfcNujPhRoGOY831wwbIzz3t0=" crossorigin="anonymous"></script>
+    <!-- Popperjs -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core/dist/umd/popper.min.js"
+        integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script>
+
+    <!-- Scripts adicionais da página -->
+    <script th:replace="${scripts}">
+
+    </script>
+</body>
+
+</html>
